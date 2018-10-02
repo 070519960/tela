@@ -3,10 +3,12 @@
 {% load static %}
 
 <html lang="pt-BR">
+{% include "blog/header.html" %}
 
     <body>
+    {% include "blog/navbar.html" %}
         <div class="page-header">
-            <a href="{% url 'post_new' %}" class="top-menu"><span class="glyphicon glyphicon-plus"></span></a>
+            <a href="{% url 'post_new' %}" class="top-menu"><span class="glyphicon glyphicon-plus">novo</span></a>
             <h1><a href="/">Meu Blog</a></h1>
         </div>
         <div class="content container">
@@ -17,5 +19,6 @@
                 </div>
             </div>
         </div>
+    {% include "blog/footer.html" %}
     </body>
 </html>

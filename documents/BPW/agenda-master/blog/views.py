@@ -2,7 +2,9 @@ from django.utils import timezone
 from .models import Post
 from django.shortcuts import render, get_object_or_404, redirect
 from .forms import PostForm
-
+from datetime import datetime
+from django.utils.timezone import localdate
+from events.models import Event
 # Create your views here.
 
 
@@ -26,7 +28,11 @@ def post_new(request):
             return redirect('post_detail', pk=post.pk)
     else:
         form = PostForm()
-    return render(request, 'blog/post_edit.html', {'form': form})
+
+    day = datetime(localdate().year, localdate().month, localdate().day)
+    events = Event.objects.filter(date='{:%Y-%m-%d}'.format(day)).order_by('-priority', 'event')
+
+    return render(request, 'blog/post_edit.html', {'form': form, 'events': events})
 
 
 def post_edit(request, pk):
