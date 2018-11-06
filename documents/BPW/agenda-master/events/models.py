@@ -14,7 +14,6 @@ class Event(models.Model):
         ('2', 'Urgente'),
         ('3', 'Muito Urgente'),
     )
-
     date = models.DateField()
     event = models.CharField(max_length=80)
     priority = models.CharField(max_length=1, choices=priorities_list)

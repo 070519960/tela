@@ -1,15 +1,13 @@
         <!-- Modal -->
         {% if hide_new_button != True %}
-        <div class="container mt-4 text-center">
-            <button type="submit" class="btn btn-primary" data-toggle="modal" data-target="#addEvent">Novo Evento</button>
-        </div>
+
         {% endif %}
         <div class="modal fade" id="addEvent" tabindex="-1" role="dialog" aria-labelledby="addEventLabel" aria-hidden="true">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <form action="{% url 'agenda-events-new' %}" method="post">
                         <div class="modal-header">
-                            <h5 class="modal-title" id="addEventLabel">Novo</h5>
+                            <h5 class="modal-title" id="addEventLabel">New</h5>
                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true">&times;</span>
                             </button>
